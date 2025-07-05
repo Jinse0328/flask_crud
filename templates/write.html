@@ -1,0 +1,20 @@
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="{{url_for('static', filename='write.css')}}">
+        </head>
+        <body>
+            <h2>게시글 작성</h2>
+            <form action="{{url_for('write')}}" method="POST" enctype="multipart/form-data"> 
+                <input type="text" name="title" placeholder="제목" required>
+                <textarea name="content" placeholder="내용" required></textarea>
+                <label class="file_upload" for="file">파일 업로드</label><input type="file" name="file">
+                <input type="password" name="post_pw" placeholder="비밀번호(선택)">
+                <button type="submit">등록</button>
+            </form>
+            <br>
+            <br>
+            <a href="{{url_for('home')}}"><button type="submit">목록</button></a>
+        </body>
+    </html>

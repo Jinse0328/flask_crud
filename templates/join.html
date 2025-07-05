@@ -1,0 +1,39 @@
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="{{url_for('static', filename='join.css')}}">
+            <script>
+                function error() {
+                    const user_pw = document.getElementById("user_pw").value;
+                    const user_pw_re = document.getElementById("user_pw_re").value;
+
+                    if (user_pw !== user_pw_re) {
+                        document.getElementById("error").innerText = "비밀번호가 일치하지 않습니다";
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+        </head>
+        <body>
+            <h1>
+                <a href="/">게시판</a>
+            </h1>
+            <div class="join">
+                <h2>
+                    회원가입
+                </h2>
+                <form class="join_form" action="{{url_for('join')}}" method="POST" onsubmit="return error()">
+                    <input type="text" name="user_name" placeholder="이름" required>
+                    <input type="date" name="date_of_birth" placeholder="생년월일" required>
+                    <input type="text" name="school" placeholder="학교" required>
+                    <input type="text" name="user_id" placeholder="아이디" required>
+                    <input type="password" name="user_pw" placeholder="비밀번호" id="user_pw" required>
+                    <input type="password" name="user_pw_re" placeholder="비밀번호 확인" id="user_pw_re" required>
+                    <p class="error" id="error"></p>
+                    <button type="submit">가입하기</button>
+                </form>
+            </div>
+        </body>
+    </html>

@@ -1,0 +1,20 @@
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="{{url_for('static', filename='view.css')}}">
+        </head>
+        <body>
+            <h2>{{user.user_name}}의 프로필</h2>
+            {%if user.profile_image%}
+                <div class="profile_img">
+                    <img src="{{url_for('static', filename='profile_image/' + user.profile_image)}}">
+                </div>
+            {%endif%}
+                <p>이름: {{user.user_name}}</p><br>
+                <p>생년월일: {{user.date_of_birth}}</p><br>
+                <p>학교: {{user.school}}</p><br>
+            <br>
+            <a href="{{url_for('home')}}"><button type="submit">목록</button></a>
+        </body>
+    </html>

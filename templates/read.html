@@ -1,0 +1,22 @@
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="{{url_for('static', filename='read.css')}}">
+        </head>
+        <body>
+            <h2>게시글</h2>
+            <div class="post">
+                <div class="title">{{post.title}}</div>
+                <div class="info">작성자: {{post.user_name}} 작성일: {{post.written_date.strftime('%Y-%m-%d')}}</div>
+                <div class="content">{{post.content}}</div>
+            </div><br>
+            {%if post.file_name%}
+                <p>첨부파일: 
+                    <a href="{{url_for('download', file_name=post.file_name)}}" download>{{post.file_name}}</a>
+                </p>
+            {%endif%}
+            <br>
+            <a href="{{url_for('home')}}"><button type="submit">목록</button></a>
+        </body>
+    </html>

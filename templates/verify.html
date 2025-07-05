@@ -1,0 +1,26 @@
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="{{url_for('static', filename='verify.css')}}">
+        </head>
+        <body>
+            <h2>게시글 비밀번호 입력</h2>
+            <form action="{{url_for('verify', num=num)}}" method="POST"> 
+                <input type="password" name="post_pw" placeholder="비밀번호" required>
+                <button type="submit">확인</button>
+            </form>
+            {%with messages = get_flashed_messages()%}
+                {%if messages%}
+                    <ul class="error">
+                        {%for message in messages%}
+                            <li>{{message}}</li>
+                        {%endfor%}
+                    </ul>
+                {%endif%}
+            {%endwith%}
+            <br>
+            <br>
+            <a href="{{url_for('home')}}"><button type="submit">목록</button></a>
+        </body>
+    </html>

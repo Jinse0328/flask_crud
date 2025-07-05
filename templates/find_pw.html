@@ -1,0 +1,36 @@
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="{{url_for('static', filename='find_pw.css')}}">
+        </head>
+        <body>
+            <h1>
+                <a href="/">게시판</a>
+            </h1>
+            <div class="find_pw">
+                <h2>
+                    비밀번호 찾기
+                </h2>
+                <form class="find_pw_form" action="{{url_for('find_pw')}}" method="POST">
+                    <input type="text" name="user_name" placeholder="이름" required>
+                    <input type="date" name="date_of_birth" placeholder="생년월일" required>
+                    <input type="text" name="school" placeholder="학교" required>
+                    <input type="text" name="user_id" placeholder="아이디" required>
+                    {%with messages = get_flashed_messages()%}
+                        {%if messages%}
+                            <ul class="error">
+                                {%for message in messages%}
+                                    <li>{{message}}</li>
+                                {%endfor%}
+                            </ul>
+                        {%endif%}
+                    {%endwith%}
+                    <button type="submit">확인</button>
+                </form><br>
+                {%if found_pw%}
+                <p>비밀번호는 <strong>{{found_pw}}</strong> 입니다</p>
+                {% endif%}
+            </div>
+        </body>
+    </html>

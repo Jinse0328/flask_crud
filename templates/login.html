@@ -1,0 +1,34 @@
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="{{url_for('static', filename='login.css')}}">
+        </head>
+        <body>
+            <h1>
+                <a href="/">게시판</a>
+            </h1>
+            <div class="login">
+                <h2>
+                    로그인
+                </h2>
+                {%with messages = get_flashed_messages()%}
+                    {%if messages%}
+                        <ul>
+                            {%for message in messages%}
+                                <li>{{message}}</li>
+                            {%endfor%}
+                        </ul>
+                    {%endif%}
+                {%endwith%}
+                <form class="login_form" action="{{url_for('login')}}" method="POST">
+                    <input type="text" name="user_id" placeholder="아이디" required>
+                    <input type="password" name="user_pw" placeholder="비밀번호" required>
+                    <input type="submit" value="로그인">
+                </form>
+                <a href="{{url_for('join')}}">회원가입</a><br><br>
+                <a href="{{url_for('find_id')}}">아이디 찾기</a><br><br>
+                <a href="{{url_for('find_pw')}}">비밀번호 찾기</a>
+            </div>
+        </body>
+    </html>

@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+   font-size: 14px;
+   font-family: sans-serif; 
+   flex-direction: column;
+   align-items: center;
+   display: flex;
+   padding: 40px 20px;
+}
+h2{
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+.post{
+    width: 600px;
+    height: 500px;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.post.title{
+    font-size: 22px;
+    font-weight: bold;
+}
+.post.info{
+    font-size: 15px;
+}
+.post.content{
+    font-size: 17px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+a button {
+    width: 60px;
+    height: 36px;
+    background-color: lightgray;
+    border-radius: 6px;
+    border: none;
+    align-self: flex-end;
+}
